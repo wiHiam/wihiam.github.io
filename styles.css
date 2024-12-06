@@ -67,6 +67,11 @@ h3 {
 }
 
 .card {
+  outline: none; /* Entfernt den Standard-Fokus-Rahmen */
+  -webkit-tap-highlight-color: transparent; /* Verhindert das Blau auf mobilen Geräten */
+  user-select: none; /* Verhindert, dass der Text ausgewählt wird */
+  touch-action: manipulation; /* Optimiert das Touch-Verhalten */
+
   flex: 0 0 auto; /* Cards in einer Reihe anordnen, keine automatische Größenänderung */
   width: 80%; /* Setze die Breite der Card für kleinere Bildschirme */
   max-width: 300px; /* Begrenze die maximale Breite */
@@ -86,13 +91,13 @@ h3 {
   cursor: pointer;
 }
 
-.card {
-  outline: none; /* Entfernt den Standard-Fokus-Rahmen */
-  -webkit-tap-highlight-color: transparent; /* Verhindert das Blau auf mobilen Geräten */
-}
-
 .card:focus {
   outline: none;
+}
+
+.card:active {
+  transform: scale(1.02); /* Sanfte Vergrößerung */
+  box-shadow: 0.1rem 0.1rem 0 var(--shadow-color); /* Leichter Schatteneffekt */
 }
 
 .card .title {
