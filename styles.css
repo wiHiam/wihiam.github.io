@@ -2,11 +2,9 @@
   --primary-color: #e40006;
   --secondary-color: #720003;
   --background-color: #f1f1f1;
-
   --card-background-color: #ffffff;
   --border-color: #333333;
   --shadow-color: var(--border-color);
-
   --size-bezel: 0.5rem;
   --size-radius: 5px;
 
@@ -26,82 +24,37 @@ header .logo {
   width: 100px;
 }
 
-h2 {
-  color: var(--primary-color);
-}
-
+h2,
 h3 {
   color: var(--primary-color);
-}
-
-@media (min-width: 768px) {
-  .card-container {
-    flex-wrap: nowrap;
-    justify-content: center;
-    overflow-x: hidden; /* Deaktiviert horizontales Scrollen */
-  }
-
-  .card {
-    flex: 1 1 calc(33.333% - 40px); /* Cards nebeneinander anordnen */
-    max-width: none;
-    width: 100vw;
-  }
-
-  .card:hover {
-    transform: scale(1.05);
-  }
-
-  .card-container .card.dim {
-    opacity: 0.5;
-  }
 }
 
 .card-container {
   display: flex;
   gap: 20px;
-  overflow-x: auto; /* Ermöglicht horizontales Scrollen */
-  scroll-snap-type: x mandatory; /* Aktiviert Snap-Effekt auf der X-Achse */
-  scroll-behavior: smooth; /* Weiches Scrollen */
-  margin: 0 2rem 0 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  margin: 0 2rem;
   padding: 2rem;
 }
 
 .card {
-  outline: none; /* Entfernt den Standard-Fokus-Rahmen */
-  -webkit-tap-highlight-color: transparent; /* Verhindert das Blau auf mobilen Geräten */
-  user-select: none; /* Verhindert, dass der Text ausgewählt wird */
-  touch-action: manipulation; /* Optimiert das Touch-Verhalten */
-
-  flex: 0 0 auto; /* Cards in einer Reihe anordnen, keine automatische Größenänderung */
-  width: 80%; /* Setze die Breite der Card für kleinere Bildschirme */
-  max-width: 300px; /* Begrenze die maximale Breite */
-  scroll-snap-align: start; /* Snap-Punkt an den Start der Card setzen */
-  background: #fff;
-
+  flex: 0 0 auto;
+  width: 80%;
+  max-width: 300px;
   padding: 2rem;
-  box-shadow: 0.5rem 0.5rem 0 var(--shadow-color);
-  text-align: center;
-
   background: var(--card-background-color);
   border: 3px solid var(--border-color);
   border-radius: var(--size-radius);
-
-  transition: all 0.3s ease;
+  box-shadow: 0.5rem 0.5rem 0 var(--shadow-color);
   text-align: center;
-  cursor: pointer;
-}
-
-.card:focus {
   outline: none;
-}
-
-.card:active {
-  transform: scale(1.02); /* Sanfte Vergrößerung */
-  box-shadow: 0.1rem 0.1rem 0 var(--shadow-color); /* Leichter Schatteneffekt */
-}
-
-.card .title {
-  height: 50px;
+  user-select: none;
+  touch-action: manipulation;
+  scroll-snap-align: start;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .card img {
@@ -111,8 +64,36 @@ h3 {
   border-radius: 8px;
 }
 
-.card h3 {
-  margin: 0.2rem;
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card:focus,
+.card:active {
+  transform: scale(1.02);
+  box-shadow: 0.1rem 0.1rem 0 var(--shadow-color);
+}
+
+.card .title {
+  height: 50px;
+}
+
+@media (min-width: 768px) {
+  .card-container {
+    flex-wrap: nowrap;
+    justify-content: center;
+    overflow-x: hidden;
+  }
+
+  .card {
+    flex: 1 1 calc(33.333% - 40px);
+    max-width: none;
+    width: 100vw;
+  }
+
+  .card-container .card.dim {
+    opacity: 0.5;
+  }
 }
 
 .modal {
@@ -136,12 +117,8 @@ h3 {
   margin: 1rem;
   width: 26em;
   box-shadow: 0.5rem 0.5rem 0 var(--shadow-color);
-  position: relative;
   text-align: center;
-
-  h2 {
-    margin: 0 0 2rem 0;
-  }
+  position: relative;
 }
 
 .close-button {
@@ -166,14 +143,13 @@ h3 {
   label {
     font-size: 16px;
     color: #333;
-    text-align: left;
-    display: block;
     margin-bottom: 5px;
+    display: block;
   }
 
   .input {
-    margin-bottom: 0.8rem;
     position: relative;
+    margin-bottom: 0.8rem;
 
     .input_label {
       position: absolute;
@@ -182,16 +158,14 @@ h3 {
       padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * 0.5);
       margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * 0.5);
       background: var(--background-color);
-      white-space: nowrap;
       transform: translate(0, 0);
       transform-origin: 0 0;
-      transition: transform 0.1s ease-in;
       font-weight: bold;
       line-height: 1;
+      transition: transform 0.1s ease-in;
     }
 
     .input_field {
-      box-sizing: border-box;
       display: block;
       width: 100%;
       padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
@@ -206,23 +180,6 @@ h3 {
       color: var(--primary-color);
     }
   }
-
-  /* input[type="text"],
-  input[type="email"] {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.3s ease;
-  }
-
-  input[type="text"]:focus,
-  input[type="email"]:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
-  } */
 
   button[type="submit"] {
     background: var(--primary-color);
