@@ -86,6 +86,15 @@ h3 {
   cursor: pointer;
 }
 
+.card {
+  outline: none; /* Entfernt den Standard-Fokus-Rahmen */
+  -webkit-tap-highlight-color: transparent; /* Verhindert das Blau auf mobilen Geräten */
+}
+
+.card:focus {
+  outline: none;
+}
+
 .card .title {
   height: 50px;
 }
