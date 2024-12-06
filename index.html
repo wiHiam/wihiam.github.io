@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webseite mit Cards</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <img src="logo.png" alt="logo" class="logo" />
+    </header>
+    <main>
+      <div class="card-container">
+        <div class="card" id="card1">
+          <div class="img">
+            <img src="person_1.png" alt="Bild 2" />
+          </div>
+          <div class="title">
+            <h3>
+              Ich bin <br />
+              Klient*in
+            </h3>
+          </div>
+          <div class="description">
+            <p>
+              Klient*innen sind Personen, die professionelle Unterstützung oder
+              Dienstleistungen in Anspruch nehmen.
+            </p>
+          </div>
+        </div>
+        <div class="card" id="card2">
+          <div class="img">
+            <img src="person_1.png" alt="Bild 2" />
+          </div>
+          <div class="title">
+            <h3>
+              Ich bin <br />
+              Ehrenamtliche*r
+            </h3>
+          </div>
+          <div class="description">
+            <p>
+              Ehrenamtliche hilfen freiwillig und ohne Bezahlung, um anderen
+              oder der Gemeinschaft zu unterstützen.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="modal hidden" id="modal">
+        <div class="modal-content">
+          <span class="close-button" id="closeModal">&times;</span>
+          <h2>Melde dich an</h2>
+          <form id="infoForm" class="user-form">
+            <!-- Vorname -->
+            <label class="input" for="firstName">
+              <input
+                class="input_field"
+                type="text"
+                placeholder=""
+                id="firstName"
+                name="firstName"
+                required
+              />
+              <span class="input_label">Vorname</span>
+            </label>
+            <!-- Nachname -->
+            <label class="input" for="lastName">
+              <input
+                class="input_field"
+                type="text"
+                placeholder=""
+                id="lastName"
+                name="lastName"
+                required
+              />
+              <span class="input_label">Nachname</span>
+            </label>
+            <!-- E-Mail -->
+            <label class="input" for="email">
+              <input
+                class="input_field"
+                type="email"
+                placeholder=""
+                id="email"
+                name="email"
+                required
+              />
+              <span class="input_label">E-Mail</span>
+            </label>
+            <button type="submit">Absenden</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

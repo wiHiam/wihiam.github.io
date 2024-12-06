@@ -1,0 +1,227 @@
+:root {
+  --primary-color: #e40006;
+  --secondary-color: #720003;
+  --background-color: #f1f1f1;
+
+  --card-background-color: #ffffff;
+  --border-color: #333333;
+  --shadow-color: var(--border-color);
+
+  --size-bezel: 0.5rem;
+  --size-radius: 5px;
+
+  line-height: 1.5;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: var(--background-color);
+}
+
+header .logo {
+  margin-top: 2rem;
+  width: 100px;
+}
+
+h2 {
+  color: var(--primary-color);
+}
+
+h3 {
+  color: var(--primary-color);
+}
+
+@media (min-width: 768px) {
+  .card-container {
+    flex-wrap: nowrap;
+    justify-content: center;
+    overflow-x: hidden; /* Deaktiviert horizontales Scrollen */
+  }
+
+  .card {
+    flex: 1 1 calc(33.333% - 40px); /* Cards nebeneinander anordnen */
+    max-width: none;
+    width: 100vw;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+  }
+
+  .card-container .card.dim {
+    opacity: 0.5;
+  }
+}
+
+.card-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; /* Ermöglicht horizontales Scrollen */
+  scroll-snap-type: x mandatory; /* Aktiviert Snap-Effekt auf der X-Achse */
+  scroll-behavior: smooth; /* Weiches Scrollen */
+  margin: 0 2rem 0 2rem;
+  padding: 2rem;
+}
+
+.card {
+  flex: 0 0 auto; /* Cards in einer Reihe anordnen, keine automatische Größenänderung */
+  width: 80%; /* Setze die Breite der Card für kleinere Bildschirme */
+  max-width: 300px; /* Begrenze die maximale Breite */
+  scroll-snap-align: start; /* Snap-Punkt an den Start der Card setzen */
+  background: #fff;
+
+  padding: 2rem;
+  box-shadow: 0.5rem 0.5rem 0 var(--shadow-color);
+  text-align: center;
+
+  background: var(--card-background-color);
+  border: 3px solid var(--border-color);
+  border-radius: var(--size-radius);
+
+  transition: all 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+}
+
+.card .title {
+  height: 50px;
+}
+
+.card img {
+  margin-bottom: 0.5rem;
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+}
+
+.card h3 {
+  margin: 0.2rem;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--background-color);
+  border: 3px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 1rem;
+  width: 26em;
+  box-shadow: 0.5rem 0.5rem 0 var(--shadow-color);
+  position: relative;
+  text-align: center;
+
+  h2 {
+    margin: 0 0 2rem 0;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #aaa;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #333;
+}
+
+.hidden {
+  display: none;
+}
+
+.user-form {
+  label {
+    font-size: 16px;
+    color: #333;
+    text-align: left;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .input {
+    margin-bottom: 0.8rem;
+    position: relative;
+
+    .input_label {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * 0.5);
+      margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * 0.5);
+      background: var(--background-color);
+      white-space: nowrap;
+      transform: translate(0, 0);
+      transform-origin: 0 0;
+      transition: transform 0.1s ease-in;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    .input_field {
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+      border: 3px solid var(--border-color);
+      border-radius: var(--size-radius);
+      background: transparent;
+    }
+
+    .input_field:focus + .input_label,
+    .input_field:not(:placeholder-shown) + .input_label {
+      transform: translate(0.25rem, -65%) scale(0.8);
+      color: var(--primary-color);
+    }
+  }
+
+  /* input[type="text"],
+  input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+  } */
+
+  button[type="submit"] {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  button[type="submit"]:hover {
+    background: var(--secondary-color);
+  }
+}
